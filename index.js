@@ -20,7 +20,12 @@ Aşağıdakileri yapın:
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
 
-
+let surucuyasi = 14;  
+if (surucuyasi > 18) { 
+console.log(true);
+} else {
+console.log(false);
+}
 
 /*
 Görev 1b - Değerler (puanlamaya dahil değildir)
@@ -33,6 +38,16 @@ Aşağıdakileri yapınız:
 
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
+
+let birincideger = 250;
+let ikincideger = 350;
+if (birincideger === ikincideger){
+  birincideger = 300;
+}
+console.log(birincideger);
+
+
+
 
 
 
@@ -48,8 +63,9 @@ Aşağıdakileri yapın:
 
    İPUCU: Number metoduna bakabilirsin
 */
-
-
+let deger = "1999";
+let sayi =Number(deger);
+console.log(sayi);
 
 
 /*
@@ -61,9 +77,12 @@ Aşağıdakileri yapın:
    3. a ve b'yi çarpıp, sonucu dönün
 */
 
-function carpma(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function carpma(a,b){
+  let sonuc= a * b;
+  return sonuc;
 }
+
+console.log(carpma(18,56));
 
 
 
@@ -77,9 +96,12 @@ Aşağıdakileri yapın:
  3. Hesaplanan köpeğin yaşını dönün.
  */
 
-function kopeginYasi(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function kopeginYasi(yas){
+  yas=yas*7;
+  return yas
 }
+
+console.log(kopeginYasi(10))
 
 
 
@@ -103,14 +125,38 @@ Aşağıdakileri oyun isimli fonksiyonu kullanarak yapın.
 
 OYUNUN KURALLARI: Makas Kağıdı yener| Kağıt Taşı yener | Taş Makas'ı yener | veya beraberlik olur.
 */
-
-function oyun(oyuncu, bilgisayar){
-  /*buraya kodunu yazabilirsin*/
+function bilgisayarınHamlesi(){
+  let deger = Math.ceil(Math.random()*3);
+  if (deger===1){
+   return "taş";
+  } else if (deger===2){
+   return "kagıt";
+  }else{
+   return "makas";
+  }
+  return sonuc;
 }
+function oyun(oyuncuHamlesi, bilgisayarınHamlesi){
+  let sonuc1="Kazandın!";
+  let sonuc2="Kaybettin!";
+  let sonuc3="Beraberlik";
+  if ((oyuncuHamlesi==="taş" && bilgisayarınHamlesi==="makas") ||
+     (oyuncuHamlesi==="makas" && bilgisayarınHamlesi==="kağıt") ||
+     (oyuncuHamlesi==="kağıt" && bilgisayarınHamlesi==="taş")){
+      return sonuc1;
+      }else if (oyuncuHamlesi===bilgisayarınHamlesi){
+       return sonuc3;
+      }else{
+      return sonuc2;
+      }
+} 
+console.log(oyun("taş",bilgisayarınHamlesi))
+
 
 
 
 /* Görev 4 : Metrik Dönüştürücü */
+
 
 //Görev 4a - Kilometreden Mil
 /*
@@ -120,9 +166,11 @@ Aşağdakileri milDonusturucu fonksiyonunu kullanarak yapın:
 3. Mil değerini geri dönün
 */
 
-function milDonusturucu(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function milDonusturucu(km){
+ let a = km*621371;
+ return a
 }
+console.log(milDonusturucu(76))
 
 
 
@@ -134,10 +182,10 @@ Aşağıdakileri feetDonusturucu fonsiyonunu kullanarak yapın:
 3. feet değerini geri dönün
 */
 
-function feetDonusturucu(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function feetDonusturucu(cm){
+  return cm/30.48
 }
-
+console.log(feetDonusturucu(5697))
 
 
 /* Görev 5 : 5 küçük maymun yatakta zıplamış şarkısını çocuklar için hazırladığımızı varsayalım. https://www.youtube.com/watch?v=e4EJ34xnlxk */
@@ -153,9 +201,16 @@ Aşağıdakileri cocukSarkisi fonksiyonunda yapın:
 4. Bu döngüde, her seferinde cocukSarkisi fonsiyonu çalışsın ve console.log'a dönen metni yazdırsın.
 */
 
-function cocukSarkisi(/*buraya kodunu yazabilirsin*/){
-      /*buraya kodunu yazabilirsin*/
+function cocukSarkisi(x){
+ return x + " küçük maymun yatakta zıplamış, biri düşüp başını çarpmış, Anne doktoru aramış, Doktor çok kızmış: Bir daha yatakta zıplamak yok!"
 }
+let y=12;
+for(let i=y; i>0; i--){
+  console.log(cocukSarkisi(i))
+}
+ 
+
+
 
 
 /* Görev 6 : Not Hesaplayıcı */
@@ -173,10 +228,20 @@ Aşağdakileri notHesapla fonksiyonunda yapın.
  dönün
 */
 
-function notHesapla(/*buraya kodunu yazabilirsin*/){
-/*buraya kodunu yazabilirsin*/
+function notHesapla(not){
+  if (not >=90 && not <= 100){
+    console.log("A aldın")
+  }else if (not >=80 && not <= 89){
+    console.log("B aldın")
+  }else if (not >= 70 && not<= 79){
+    console.log("C aldın")
+  }else if (not >= 60 && not<= 69){
+    console.log("D aldın")
+  }else{
+    console.log("F aldın")
+  }
 }
-
+console.log(notHesapla(73))
 
 
 /* Bonus Çalışma: Sesli harf sayacı - Kaç tane sesli harf var? */
